@@ -41,6 +41,9 @@ def calculate_fibonacci_number(position):
     """
     Calculate the Fibonacci number at the given position.
     
+    Note: This uses a simple recursive approach for educational clarity.
+    For production use with large values, consider memoization or iteration.
+    
     Args:
         position: The position in the Fibonacci sequence (0-indexed)
     
