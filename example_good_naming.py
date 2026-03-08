@@ -30,19 +30,14 @@ def filter_and_double_positive_numbers(numbers):
     Returns:
         List of doubled positive numbers
     """
-    doubled_positives = []
-    for number in numbers:
-        if number > 0:
-            doubled_value = number * 2
-            doubled_positives.append(doubled_value)
-    return doubled_positives
+    return [number * 2 for number in numbers if number > 0]
 
 def calculate_fibonacci_number(position):
     """
     Calculate the Fibonacci number at the given position.
     
-    Note: This uses a simple recursive approach for educational clarity.
-    For production use with large values, consider memoization or iteration.
+    Uses an iterative approach for O(n) time complexity and O(1) space,
+    avoiding the exponential cost of naive recursion.
     
     Args:
         position: The position in the Fibonacci sequence (0-indexed)
@@ -52,7 +47,10 @@ def calculate_fibonacci_number(position):
     """
     if position <= 1:
         return position
-    return calculate_fibonacci_number(position - 1) + calculate_fibonacci_number(position - 2)
+    prev, curr = 0, 1
+    for _ in range(2, position + 1):
+        prev, curr = curr, prev + curr
+    return curr
 
 class Point2D:
     """Represents a point in 2D space with x and y coordinates."""

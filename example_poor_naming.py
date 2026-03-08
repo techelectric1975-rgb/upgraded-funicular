@@ -12,18 +12,16 @@ def calc(a, b, c):
 
 def proc(data):
     """Process data with vague function name."""
-    res = []
-    for i in data:
-        if i > 0:
-            temp = i * 2
-            res.append(temp)
-    return res
+    return [i * 2 for i in data if i > 0]
 
 def f1(n):
     """Single letter function name with unclear purpose."""
     if n <= 1:
         return n
-    return f1(n-1) + f1(n-2)
+    prev, curr = 0, 1
+    for _ in range(2, n + 1):
+        prev, curr = curr, prev + curr
+    return curr
 
 class Obj:
     """Class with non-descriptive name."""
